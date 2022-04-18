@@ -9,7 +9,10 @@ class rzeczDan:
         return self.endOf-self.startOf
     def giveinfo(self):
         print("start",self.start," end=",self.end," day=",self.day," kategory",self.category)
-
+    def write(self):
+        with open('alive.csv', 'a+') as csvfile:
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(self.start,self.end,self.day,self.category)
 kategoria=["Studia stacjonarnie",
 "Siłownia/Praca ",
 "Jedzenie+gotowanie",
@@ -28,16 +31,19 @@ summaryArray=[]
 def listPrinterwithIndex(kategoria):
     for number,kat in enumerate(kategoria):
         print(number," = ",kat)
+def zapytanie():
+    listPrinterwithIndex(kategoria)
+    kat=input("Wybierz kategorie:")
+    odkiedy=input("Podaj od kiedy:")
+    czasOd.append(odkiedy)
+    dokiedy=input("Podaj od kiedy:")
+    czasDo.append(dokiedy)
+    day=input("Podaj ktorego dnia:")
+    days.append(day)
+    tere=rzeczDan(odkiedy,dokiedy,day,kat)
+    summaryArray.append(tere)
+    tere.giveinfo()
+    print(summaryArray)
 
-listPrinterwithIndex(kategoria)
-kat=input("Wybierz kategorie:")
-odkiedy=input("Podaj od kiedy:")
-czasOd.append(odkiedy)
-dokiedy=input("Podaj od kiedy:")
-czasDo.append(dokiedy)
-day=input("Podaj ktorego dnia:")
-days.append(day)
-tere=rzeczDan(odkiedy,dokiedy,day,kat)
-tere.giveinfo()
 
-
+zapytanie()
