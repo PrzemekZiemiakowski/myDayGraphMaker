@@ -27,7 +27,7 @@ summaryArray=[]
 
 def listPrinterwithIndex(kategoria):
     for number,kat in enumerate(kategoria):
-        print(number+1," = ",kat)
+        print(number," = ",kat)
 
 listPrinterwithIndex(kategoria)
 kat=input("Wybierz kategorie:")
